@@ -86,7 +86,11 @@ function eatDot() {
 
 function eatPowerPellet() {
   console.log('\nChomp!');
-  score += 10;
+  score += 50;
+  for(i = 0; i < ghosts.length; i++){
+    edible = true;
+  }
+  powerPellets -= 1;
 }
 
 function eatGhost(ghost) {
