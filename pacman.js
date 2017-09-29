@@ -37,7 +37,7 @@ var clyde = {
   edible: false
 };
 
-var ghosts = ['inky', 'blinky', 'pinky', 'clyde']
+var ghosts = [inky, blinky, pinky, clyde]
 
 
 // Draw the screen functionality
@@ -69,7 +69,7 @@ function displayMenu() {
 
   for (var i = 0; i < ghosts.length; i++){
     var num = i+1
-    console.log('(' + num + ')' + ' ' + 'Eat ' + ghosts[i])
+    console.log('(' + num + ')' + ' ' + 'Eat ' + ghosts[i].name)
   };
 
   console.log('(q) Quit');
@@ -97,12 +97,14 @@ function powerPelletsRemaining(){
 }
 
 function eatPowerPellet() {
-    if (powerPelletsRemaining()){
+    if ( powerPelletsRemaining() ){
     console.log('\nChomp!');
     score += 50;
+
     for(i = 0; i < ghosts.length; i++){
-      edible = true;
+      ghosts[i].edible = true;
     }
+
     powerPellets -= 1;
   }
   else {
@@ -111,12 +113,18 @@ function eatPowerPellet() {
 }
 
 function eatGhost(ghost) {
-  console.log('\nChomp!');
-  if (ghost.edible == false)
+  if (ghost.edible == false){
     console.log('\n' + ghost.name + ' has killed pacman! =(')
     lives -= 1;
     checkLives()
+  }
+  else {
+    console.log('\nSuccess! Pac-mac has devoured ' + ghost.name + ' the ' + ghost.character + ' ghost!');
+    score += 200;
+    ghost.edible = false
+  }
 }
+
 
 function checkLives() {
   if (lives < 1)
