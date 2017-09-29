@@ -62,6 +62,7 @@ function displayStats() {
 function displayMenu() {
   console.log('\n\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
+  console.log('(p) Eat Power-Pellet');
 
   for (var i = 0; i < ghosts.length; i++){
     var num = i+1
@@ -79,6 +80,11 @@ function displayPrompt() {
 
 // Menu Options
 function eatDot() {
+  console.log('\nChomp!');
+  score += 10;
+}
+
+function eatPowerPellet() {
   console.log('\nChomp!');
   score += 10;
 }
@@ -118,6 +124,9 @@ function processInput(key) {
       break;
     case 'd':
       eatDot();
+      break;
+    case 'p':
+      eatPowerPellet();
       break;
     default:
       console.log('\nInvalid Command!');
