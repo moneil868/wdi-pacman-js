@@ -36,7 +36,7 @@ var clyde = {
   edible: false
 };
 
-var ghosts = [inky, blinky, pinky, clyde]
+var ghosts = ['inky', 'blinky', 'pinky', 'clyde']
 
 
 // Draw the screen functionality
@@ -60,6 +60,12 @@ function displayStats() {
 function displayMenu() {
   console.log('\n\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
+
+  for (var i = 0; i < ghosts.length; i++){
+    var num = i+1
+    console.log('(' + num + ')' + ' ' + 'Eat ' + ghosts[i])
+  }
+
   console.log('(q) Quit');
 }
 
@@ -80,6 +86,11 @@ function eatDot() {
 function processInput(key) {
   switch(key) {
     case '\u0003': // This makes it so CTRL-C will quit the program
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+
     case 'q':
       process.exit();
       break;
