@@ -81,16 +81,30 @@ function eatDot() {
   score += 10;
 }
 
+function eatGhost(ghost) {
+  console.log('\nChomp!');
+  if (ghost.edible == false)
+    console.log('\n' + ghost.name + ' has killed pacman! =(')
+    lives -= 1;
+}
+
 
 // Process Player's Input
 function processInput(key) {
   switch(key) {
     case '\u0003': // This makes it so CTRL-C will quit the program
     case '1':
+      eatGhost(inky);
+      break;
     case '2':
+      eatGhost(blinky);
+      break;
     case '3':
+      eatGhost(pinky);
+      break;
     case '4':
-
+      eatGhost(clyde);
+      break;
     case 'q':
       process.exit();
       break;
