@@ -54,6 +54,21 @@ function clearScreen() {
   console.log('\x1Bc');
 }
 
+
+
+function isEdible(){
+  for (var i = 0; i < ghosts.length; i++){
+    var num = i+1
+      if (ghosts[i].edible == false) {
+        console.log('(' + num + ')' + ' ' + 'Eat ' + ghosts[i].name + ' (inedible)')
+      }
+      else {
+        console.log('(' + num + ')' + ' ' + 'Eat ' + ghosts[i].name + ' (edible)')
+      }
+  }
+}
+
+
 function displayStats() {
   console.log('Score: ' + score + '     Lives: ' + lives);
   console.log('\nPower-Pellets: ' + powerPellets)
@@ -67,10 +82,7 @@ function displayMenu() {
     console.log('(p) Eat Power-Pellet')
   }
 
-  for (var i = 0; i < ghosts.length; i++){
-    var num = i+1
-    console.log('(' + num + ')' + ' ' + 'Eat ' + ghosts[i].name)
-  };
+  isEdible()
 
   console.log('(q) Quit');
 }
